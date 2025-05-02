@@ -39,7 +39,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send notification email to site owner
     const notificationResponse = await resend.emails.send({
-      from: "Contact Form <onboarding@resend.dev>",
+      from: "Trailblazer <info@gotrailblazer.cc>",
       to: ["info@gotrailblazer.cc"], // Replace with your email
       subject: "New Contact Form Submission",
       html: `
@@ -54,7 +54,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Send confirmation email to the person who submitted the form
     const confirmationResponse = await resend.emails.send({
-      from: "Trailblazer <onboarding@resend.dev>",
+      from: "Trailblazer <info@gotrailblazer.cc>",
       to: [email],
       subject: "Thank You for Contacting Us",
       html: `
