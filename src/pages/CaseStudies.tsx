@@ -2,6 +2,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const CaseStudies = () => {
   // Sample case study data - in a real app, this might come from an API
@@ -101,12 +102,12 @@ const CaseStudies = () => {
           <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
             Let's discuss how we can help your brand reach new markets and achieve exceptional growth.
           </p>
-          <a 
-            href="#contact" 
-            className="bg-warm-700 hover:bg-warm-800 text-white font-medium px-8 py-3 rounded-full shadow-sm transition-all"
+          <Link 
+            to="/#contact" 
+            className="bg-warm-700 hover:bg-warm-800 text-white font-medium px-8 py-3 rounded-full shadow-sm transition-all inline-block"
           >
             Contact Us Today
-          </a>
+          </Link>
         </div>
       </section>
       
