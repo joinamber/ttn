@@ -1,7 +1,46 @@
 
-import { Globe } from 'lucide-react';
+import { Globe, Instagram } from 'lucide-react';
+import { useState } from 'react';
+import { toast } from '@/components/ui/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    
+    if (!email) return;
+    
+    try {
+      setIsSubmitting(true);
+      
+      const { data, error } = await supabase.functions.invoke('subscription-email', {
+        body: { email }
+      });
+
+      if (error) {
+        throw error;
+      }
+      
+      toast({
+        title: "Success!",
+        description: "Thank you for subscribing to our newsletter.",
+      });
+      setEmail('');
+    } catch (error) {
+      console.error("Failed to subscribe:", error);
+      toast({
+        title: "Subscription failed",
+        description: "Could not process your subscription. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-6">
       <div className="container mx-auto px-4 md:px-6">
@@ -15,16 +54,15 @@ const Footer = () => {
               Helping DTC brands develop products and launch globally.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition">
-                <span className="sr-only">Twitter</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                </svg>
+              <a href="https://www.instagram.com/ttn.collective" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <span className="sr-only">Instagram</span>
+                <Instagram className="h-6 w-6" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition">
-                <span className="sr-only">LinkedIn</span>
+              <a href="https://shorturl.at/ZdkF3" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <span className="sr-only">Rednote</span>
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path fillRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clipRule="evenodd" />
+                  <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+                  <path d="M12 6.37v11.26c-3.12 0-5.63-2.52-5.63-5.63S8.88 6.37 12 6.37z" />
                 </svg>
               </a>
             </div>
@@ -52,17 +90,21 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Subscribe</h3>
             <p className="text-gray-400 mb-4">Stay updated with our latest insights on global market trends.</p>
-            <form className="flex">
+            <form onSubmit={handleSubscribe} className="flex">
               <input
                 type="email"
                 placeholder="Your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="w-full bg-gray-800 rounded-l-md px-4 py-2 text-white focus:outline-none"
+                required
               />
               <button
                 type="submit"
                 className="bg-primary hover:bg-primary/90 px-4 py-2 rounded-r-md transition"
+                disabled={isSubmitting}
               >
-                Subscribe
+                {isSubmitting ? 'Sending...' : 'Subscribe'}
               </button>
             </form>
           </div>
