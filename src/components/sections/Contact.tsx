@@ -5,7 +5,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, Globe } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { toast } from '@/components/ui/sonner';
-import emailjs from '@emailjs/browser';
+import { supabase } from '@/integrations/supabase/client';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -19,22 +19,22 @@ const Contact = () => {
     try {
       setIsSubmitting(true);
       
-      // Replace these with your actual EmailJS service, template, and user IDs
-      // You'll need to sign up at emailjs.com and create these
-      const serviceId = 'YOUR_SERVICE_ID';
-      const templateId = 'YOUR_TEMPLATE_ID';
-      const publicKey = 'YOUR_PUBLIC_KEY';
-      
       const formData = new FormData(formRef.current);
-      const templateParams = {
-        from_name: formData.get('name'),
-        reply_to: formData.get('email'),
-        company: formData.get('company'),
-        message: formData.get('message'),
-        to_email: 'info@gotrailblazer.cc'
+      const formValues = {
+        name: formData.get('name') as string,
+        email: formData.get('email') as string,
+        company: formData.get('company') as string || undefined,
+        message: formData.get('message') as string
       };
-      
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+
+      // Call Supabase edge function to send email
+      const { data, error } = await supabase.functions.invoke('send-email', {
+        body: formValues
+      });
+
+      if (error) {
+        throw error;
+      }
       
       toast.success("Message sent successfully! We'll be in touch soon.");
       formRef.current.reset();
