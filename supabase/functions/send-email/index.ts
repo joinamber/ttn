@@ -40,7 +40,7 @@ const handler = async (req: Request): Promise<Response> => {
     // Send notification email to site owner
     const notificationResponse = await resend.emails.send({
       from: "Trailblazer <info@gotrailblazer.cc>",
-      to: ["info@gotrailblazer.cc"], // Replace with your email
+      to: ["info@gotrailblazer.cc"], 
       subject: "New Contact Form Submission",
       html: `
         <h1>New Contact Form Submission</h1>
