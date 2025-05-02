@@ -3,6 +3,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 const CaseStudies = () => {
   // Sample case study data - in a real app, this might come from an API
@@ -40,6 +41,19 @@ const CaseStudies = () => {
       image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     }
   ];
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    // Navigate to homepage
+    window.location.href = '/';
+    // Add a small delay to ensure navigation completes before scrolling
+    setTimeout(() => {
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
     <div className="min-h-screen">
@@ -102,12 +116,12 @@ const CaseStudies = () => {
           <p className="text-lg text-foreground/80 mb-8 max-w-2xl mx-auto">
             Let's discuss how we can help your brand reach new markets and achieve exceptional growth.
           </p>
-          <Link 
-            to="/#contact" 
-            className="bg-warm-700 hover:bg-warm-800 text-white font-medium px-8 py-3 rounded-full shadow-sm transition-all inline-block"
+          <Button 
+            onClick={handleContactClick}
+            className="bg-warm-700 hover:bg-warm-800 text-white font-medium px-8 py-3 rounded-full shadow-sm transition-all"
           >
             Contact Us Today
-          </Link>
+          </Button>
         </div>
       </section>
       
