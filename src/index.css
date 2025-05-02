@@ -5,33 +5,33 @@
 
 @layer base {
   :root {
-    --background: 217 100% 98%;
-    --foreground: 222 47% 11%;
+    --background: 36 33% 97%;
+    --foreground: 25 20% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 25 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 25 20% 15%;
 
-    --primary: 217 91% 60%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 25 56% 42%;
+    --primary-foreground: 36 33% 97%;
 
-    --secondary: 214 32% 91%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 25 30% 95%;
+    --secondary-foreground: 25 20% 15%;
 
-    --muted: 214 32% 91%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 25 30% 92%;
+    --muted-foreground: 25 20% 40%;
 
-    --accent: 214 32% 91%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 25 30% 90%;
+    --accent-foreground: 25 20% 15%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 36 33% 97%;
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 222 47% 11%;
+    --border: 25 30% 85%;
+    --input: 25 30% 85%;
+    --ring: 25 56% 42%;
 
     --radius: 0.75rem;
   }
@@ -48,7 +48,7 @@
 
 @layer utilities {
   .text-gradient {
-    @apply bg-gradient-to-r from-primary to-blue-700 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-warm-600 to-warm-800 bg-clip-text text-transparent;
   }
   
   .fade-in {
@@ -65,5 +65,33 @@
       opacity: 1;
       transform: translateY(0);
     }
+  }
+  
+  .underline-animation {
+    position: relative;
+  }
+  
+  .underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+  }
+  
+  .underline-animation:hover:after {
+    width: 100%;
+  }
+  
+  .warm-gradient {
+    @apply bg-gradient-to-r from-warm-100 to-warm-200;
+  }
+  
+  .circle-decoration {
+    @apply absolute rounded-full opacity-20;
+    background: radial-gradient(circle, var(--tw-gradient-from) 0%, var(--tw-gradient-to) 100%);
   }
 }

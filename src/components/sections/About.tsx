@@ -3,49 +3,51 @@ import { Button } from '@/components/ui/button';
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-24 bg-warm-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <div className="relative">
-              <div className="absolute inset-0 -z-10 bg-primary/5 rounded-full blur-3xl"></div>
-              <img 
-                src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
-                alt="TTN Team" 
-                className="rounded-lg shadow-lg"
-              />
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full bg-primary/10 z-0"></div>
-            </div>
-          </div>
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-serif font-medium mb-12 text-warm-800">
+            We are trusted by forward-thinking<br />DTC brands
+          </h2>
           
-          <div className="order-1 lg:order-2">
-            <div className="space-y-6 max-w-xl">
-              <h2 className="text-3xl md:text-4xl font-bold">About TTN</h2>
-              <p className="text-lg text-foreground/80">
-                TTN is a team of product development and global expansion experts with a mission to help innovative DTC brands launch and scale internationally.
-              </p>
-              <p className="text-foreground/70">
-                Founded in 2018, we've successfully helped over 50 brands enter new markets across Asia, Europe, and the Americas. Our team combines product expertise with deep market knowledge to create tailored strategies for sustainable growth.
-              </p>
-              <div className="grid grid-cols-2 gap-4 pt-4">
-                <div>
-                  <div className="text-3xl font-bold text-primary">50+</div>
-                  <div className="text-sm text-foreground/70">Brands Launched</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">20+</div>
-                  <div className="text-sm text-foreground/70">Global Markets</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">95%</div>
-                  <div className="text-sm text-foreground/70">Success Rate</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-primary">$100M+</div>
-                  <div className="text-sm text-foreground/70">Revenue Generated</div>
-                </div>
+          <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl">
+            We partner with beauty, wellness, fashion, and lifestyle brands that are ready to scale internationally. Whether you're launching your first product or expanding across borders, we've got you covered.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center mt-20">
+            <div className="order-2 md:order-1">
+              <div className="relative">
+                <div className="absolute inset-0 -z-10 bg-warm-200 rounded-full blur-xl transform translate-x-4 translate-y-4"></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" 
+                  alt="TTN Team" 
+                  className="rounded-lg"
+                />
               </div>
-              <Button className="mt-6">Learn Our Story</Button>
+            </div>
+            
+            <div className="order-1 md:order-2">
+              <div className="space-y-8">
+                <div className="grid grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-warm-700">50+</div>
+                    <div className="text-sm text-foreground/70">Brands Launched</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-warm-700">20+</div>
+                    <div className="text-sm text-foreground/70">Global Markets</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-warm-700">95%</div>
+                    <div className="text-sm text-foreground/70">Success Rate</div>
+                  </div>
+                  <div className="bg-white p-6 rounded-lg shadow-sm">
+                    <div className="text-3xl font-bold text-warm-700">$100M+</div>
+                    <div className="text-sm text-foreground/70">Revenue Generated</div>
+                  </div>
+                </div>
+                <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-6">Learn Our Story</Button>
+              </div>
             </div>
           </div>
         </div>
