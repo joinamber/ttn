@@ -116,9 +116,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">© 2025 TTN Global. All rights reserved.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-500 hover:text-white text-sm">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-white text-sm">Terms of Service</a>
-              <a href="#" className="text-gray-500 hover:text-white text-sm">Cookie Policy</a>
+              <Link to="/privacy" className="text-gray-500 hover:text-white text-sm">Privacy Policy</Link>
+              <Link to="/terms" className="text-gray-500 hover:text-white text-sm">Terms of Service</Link>
+              <Link to="/cookie-policy" className="text-gray-500 hover:text-white text-sm">Cookie Policy</Link>
             </div>
           </div>
         </div>
