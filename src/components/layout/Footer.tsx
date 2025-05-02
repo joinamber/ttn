@@ -12,7 +12,7 @@ const Footer = () => {
               <span className="font-bold text-xl">TTN</span>
             </div>
             <p className="text-gray-400 mb-6">
-              Helping DTC brands develop products and launch globally since 2018.
+              Helping DTC brands develop products and launch globally.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition">
@@ -45,7 +45,6 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="#about" className="text-gray-400 hover:text-white transition">About Us</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white transition">Case Studies</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Careers</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition">Contact</a></li>
             </ul>
           </div>
