@@ -1,5 +1,4 @@
-
-import { Globe, Instagram } from 'lucide-react';
+import { Globe, Instagram, Twitter } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
@@ -58,6 +57,10 @@ const Footer = () => {
               <a href="https://www.instagram.com/ttn.collective" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <span className="sr-only">Instagram</span>
                 <Instagram className="h-6 w-6" />
+              </a>
+              <a href="https://x.com/ttncreate" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
+                <span className="sr-only">X (Twitter)</span>
+                <Twitter className="h-6 w-6" />
               </a>
               <a href="https://shorturl.at/ZdkF3" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <span className="sr-only">Rednote</span>
