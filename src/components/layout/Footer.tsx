@@ -60,10 +60,11 @@ const Footer = () => {
               </a>
               <a href="https://shorturl.at/ZdkF3" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <span className="sr-only">Rednote</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
-                  <path d="M12 6.37v11.26c-3.12 0-5.63-2.52-5.63-5.63S8.88 6.37 12 6.37z" />
-                </svg>
+                <img 
+                  src="/lovable-uploads/7a414524-66ea-4e1d-83bb-dc57e6caa890.png" 
+                  alt="Rednote" 
+                  className="h-6 w-6"
+                />
               </a>
             </div>
           </div>
