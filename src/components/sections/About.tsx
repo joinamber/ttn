@@ -1,7 +1,29 @@
 
 import { Button } from '@/components/ui/button';
+import { useLocation } from 'react-router-dom';
 
 const About = () => {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
+
+  const handleNavigation = (e: React.MouseEvent<HTMLButtonElement>, sectionId: string) => {
+    e.preventDefault();
+    
+    if (isHomePage) {
+      // If on homepage, just scroll to the section
+      const section = document.getElementById(sectionId);
+      if (section) {
+        window.scrollTo({
+          top: section.offsetTop - 80, // Offset for fixed header
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // If on another page, navigate to homepage first, then scroll to section
+      window.location.href = `/#${sectionId}`;
+    }
+  };
+
   return (
     <section id="about" className="py-24 bg-warm-50">
       <div className="container mx-auto px-4 md:px-6">
@@ -46,7 +68,12 @@ const About = () => {
                     <div className="text-sm text-foreground/70">Cost Saved</div>
                   </div>
                 </div>
-                <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-6">Learn Our Story</Button>
+                <Button 
+                  className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-6"
+                  onClick={(e) => handleNavigation(e, 'contact')}
+                >
+                  Learn Our Story
+                </Button>
               </div>
             </div>
           </div>
