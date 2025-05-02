@@ -2,7 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, Globe } from 'lucide-react';
+import { Mail, Globe } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { toast } from '@/components/ui/sonner';
 import { supabase } from '@/integrations/supabase/client';
@@ -78,18 +78,10 @@ const Contact = () => {
                   </div>
                   
                   <div className="flex items-start gap-4">
-                    <Phone className="w-5 h-5 text-warm-700 mt-1" />
-                    <div>
-                      <h3 className="font-medium">Call Us</h3>
-                      <p className="text-foreground/70">+1 (555) 123-4567</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
                     <Globe className="w-5 h-5 text-warm-700 mt-1" />
                     <div>
                       <h3 className="font-medium">Locations</h3>
-                      <p className="text-foreground/70">New York • London • Singapore • Tokyo</p>
+                      <p className="text-foreground/70">Singapore • Manila • Hong Kong • London</p>
                     </div>
                   </div>
                 </div>
