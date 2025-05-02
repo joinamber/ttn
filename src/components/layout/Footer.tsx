@@ -9,7 +9,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Globe className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl">TTN</span>
+              <span className="font-bold text-xl">The Trailblazer Network</span>
             </div>
             <p className="text-gray-400 mb-6">
               Helping DTC brands develop products and launch globally.
