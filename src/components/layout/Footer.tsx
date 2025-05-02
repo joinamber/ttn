@@ -3,6 +3,7 @@ import { Globe, Instagram } from 'lucide-react';
 import { useState } from 'react';
 import { toast } from '@/components/ui/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -83,7 +84,7 @@ const Footer = () => {
             <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-3">
               <li><a href="#about" className="text-gray-400 hover:text-white transition">About Us</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Case Studies</a></li>
+              <li><Link to="/case-studies" className="text-gray-400 hover:text-white transition">Case Studies</Link></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition">Contact</a></li>
             </ul>
           </div>
