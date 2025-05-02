@@ -9,25 +9,33 @@ import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
 import { useEffect } from "react";
 
+/**
+ * Main Index page component
+ * Contains all sections of the homepage
+ */
 const Index = () => {
   useEffect(() => {
     // Add smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const href = this.getAttribute('href');
-        if (!href) return;
-        
-        const target = document.querySelector(href);
-        if (!target) return;
-        
-        window.scrollTo({
-          top: target.offsetTop - 80, // Offset for fixed header
-          behavior: 'smooth'
+    const setupSmoothScrolling = () => {
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const href = this.getAttribute('href');
+          if (!href) return;
+          
+          const target = document.querySelector(href);
+          if (!target) return;
+          
+          window.scrollTo({
+            top: target.offsetTop - 80, // Offset for fixed header
+            behavior: 'smooth'
+          });
         });
       });
-    });
+    };
+
+    setupSmoothScrolling();
   }, []);
 
   return (

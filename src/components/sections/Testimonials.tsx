@@ -1,5 +1,47 @@
 
-const testimonials = [
+import SectionHeader from '@/components/ui/section-header';
+
+/**
+ * Testimonial interface
+ */
+interface Testimonial {
+  quote: string;
+  author: string;
+  title: string;
+  image: string;
+}
+
+/**
+ * Testimonial card component
+ */
+const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
+  return (
+    <div className="bg-white rounded-xl p-8 shadow-md relative">
+      <div className="absolute top-6 right-8 text-7xl text-warm-200 font-serif">"</div>
+      <div className="flex flex-col h-full">
+        <blockquote className="flex-grow mb-8 relative z-10">
+          <p className="italic text-foreground/80">"{testimonial.quote}"</p>
+        </blockquote>
+        <div className="flex items-center">
+          <img 
+            src={testimonial.image} 
+            alt={testimonial.author} 
+            className="w-12 h-12 rounded-full mr-4 border-2 border-warm-100"
+          />
+          <div>
+            <div className="font-medium">{testimonial.author}</div>
+            <div className="text-sm text-foreground/70">{testimonial.title}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/**
+ * Testimonials data containing client success stories
+ */
+const testimonials: Testimonial[] = [
   {
     quote: "TTN helped us navigate the complex ASEAN markets and launch our brands in Singapore and the Philippines with remarkable success.",
     author: "Sarah Chen",
@@ -17,41 +59,24 @@ const testimonials = [
     author: "Elena Rodriguez",
     title: "COO, FitTech Wearables",
     image: "https://i.pravatar.cc/150?img=29"
-  },
+  }
 ];
 
+/**
+ * Testimonials section showcasing client success stories
+ */
 const Testimonials = () => {
   return (
     <section className="py-24 bg-warm-50">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-serif font-medium mb-4">Client Success Stories</h2>
-          <p className="text-lg text-foreground/70">
-            Hear from brands that have successfully launched globally with TTN
-          </p>
-        </div>
+        <SectionHeader 
+          title="Client Success Stories"
+          description="Hear from brands that have successfully launched globally with TTN"
+        />
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-white rounded-xl p-8 shadow-md relative">
-              <div className="absolute top-6 right-8 text-7xl text-warm-200 font-serif">"</div>
-              <div className="flex flex-col h-full">
-                <blockquote className="flex-grow mb-8 relative z-10">
-                  <p className="italic text-foreground/80">"{testimonial.quote}"</p>
-                </blockquote>
-                <div className="flex items-center">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.author} 
-                    className="w-12 h-12 rounded-full mr-4 border-2 border-warm-100"
-                  />
-                  <div>
-                    <div className="font-medium">{testimonial.author}</div>
-                    <div className="text-sm text-foreground/70">{testimonial.title}</div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <TestimonialCard key={index} testimonial={testimonial} />
           ))}
         </div>
       </div>

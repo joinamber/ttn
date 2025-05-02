@@ -1,50 +1,18 @@
+
 import { Globe, Instagram, Twitter } from 'lucide-react';
-import { useState } from 'react';
-import { toast } from '@/components/ui/use-toast';
-import { supabase } from '@/integrations/supabase/client';
 import { Link } from 'react-router-dom';
+import NewsletterForm from '@/components/forms/NewsletterForm';
 
+/**
+ * Footer component containing site navigation, brand information,
+ * social media links and newsletter subscription
+ */
 const Footer = () => {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    if (!email) return;
-    
-    try {
-      setIsSubmitting(true);
-      
-      const { data, error } = await supabase.functions.invoke('subscription-email', {
-        body: { email }
-      });
-
-      if (error) {
-        throw error;
-      }
-      
-      toast({
-        title: "Success!",
-        description: "Thank you for subscribing to our newsletter.",
-      });
-      setEmail('');
-    } catch (error) {
-      console.error("Failed to subscribe:", error);
-      toast({
-        title: "Subscription failed",
-        description: "Could not process your subscription. Please try again.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <footer className="bg-gray-900 text-white pt-16 pb-6">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {/* Brand information */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Globe className="h-6 w-6 text-primary" />
@@ -73,6 +41,7 @@ const Footer = () => {
             </div>
           </div>
           
+          {/* Services links */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-3">
@@ -83,6 +52,7 @@ const Footer = () => {
             </ul>
           </div>
           
+          {/* Company links */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Company</h3>
             <ul className="space-y-3">
@@ -92,29 +62,15 @@ const Footer = () => {
             </ul>
           </div>
           
+          {/* Newsletter subscription */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Subscribe</h3>
             <p className="text-gray-400 mb-4">Stay updated with our latest insights on global market trends.</p>
-            <form onSubmit={handleSubscribe} className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-gray-800 rounded-l-md px-4 py-2 text-white focus:outline-none"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-primary hover:bg-primary/90 px-4 py-2 rounded-r-md transition"
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? 'Sending...' : 'Subscribe'}
-              </button>
-            </form>
+            <NewsletterForm />
           </div>
         </div>
         
+        {/* Copyright and legal links */}
         <div className="border-t border-gray-800 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm">© 2025 TTN Global. All rights reserved.</p>
