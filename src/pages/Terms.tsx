@@ -55,7 +55,7 @@ const Terms = () => {
               <p>For any questions about these Terms of Service, please contact us at:</p>
               <p className="mt-2 mb-6">
                 The Trailblazer Network<br />
-                Email: legal@ttn-global.com
+                Email: info@gotrailblazer.cc
               </p>
             </div>
           </div>

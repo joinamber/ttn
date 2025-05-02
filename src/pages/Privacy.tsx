@@ -67,7 +67,7 @@ const Privacy = () => {
               <p>To ask questions or comment about this privacy policy and our privacy practices, please contact us at:</p>
               <p className="mt-2 mb-6">
                 The Trailblazer Network<br />
-                Email: privacy@ttn-global.com
+                Email: info@gotrailblazer.cc
               </p>
             </div>
           </div>

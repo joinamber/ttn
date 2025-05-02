@@ -54,7 +54,7 @@ const CookiePolicy = () => {
               <p>For any questions about this Cookie Policy, please contact us at:</p>
               <p className="mt-2 mb-6">
                 The Trailblazer Network<br />
-                Email: privacy@ttn-global.com
+                Email: info@gotrailblazer.cc
               </p>
             </div>
           </div>
