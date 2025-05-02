@@ -11,7 +11,7 @@ const About = () => {
           </h2>
           
           <p className="text-xl md:text-2xl text-foreground/80 mb-12 max-w-3xl">
-            We partner with beauty, wellness, fashion, and lifestyle brands that are ready to scale internationally. Whether you're launching your first product or expanding across borders, we've got you covered.
+            We partner with beauty, wellness, fashion, electronic, and lifestyle brands that are ready to scale internationally. Whether you're launching your first product or expanding across borders, we've got you covered.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-center mt-20">
@@ -30,11 +30,11 @@ const About = () => {
               <div className="space-y-8">
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <div className="text-3xl font-bold text-warm-700">50+</div>
+                    <div className="text-3xl font-bold text-warm-700">15+</div>
                     <div className="text-sm text-foreground/70">Brands Launched</div>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <div className="text-3xl font-bold text-warm-700">20+</div>
+                    <div className="text-3xl font-bold text-warm-700">10+</div>
                     <div className="text-sm text-foreground/70">Global Markets</div>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-sm">
@@ -42,8 +42,8 @@ const About = () => {
                     <div className="text-sm text-foreground/70">Success Rate</div>
                   </div>
                   <div className="bg-white p-6 rounded-lg shadow-sm">
-                    <div className="text-3xl font-bold text-warm-700">$100M+</div>
-                    <div className="text-sm text-foreground/70">Revenue Generated</div>
+                    <div className="text-3xl font-bold text-warm-700">$300K+</div>
+                    <div className="text-sm text-foreground/70">Cost Saved</div>
                   </div>
                 </div>
                 <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-6">Learn Our Story</Button>
