@@ -1,19 +1,19 @@
 
 const testimonials = [
   {
-    quote: "TTN helped us navigate the complex Asian markets and launch our beauty products in Japan and South Korea with remarkable success.",
+    quote: "TTN helped us navigate the complex ASEAN markets and launch our brands in Singapore and the Philippines with remarkable success.",
     author: "Sarah Chen",
-    title: "Founder, Glow Beauty Co.",
+    title: "Jewelry Founder, Nox & Oro",
     image: "https://i.pravatar.cc/150?img=32"
   },
   {
-    quote: "Working with TTN transformed our approach to global expansion. Their expertise in product localization and market entry strategy was invaluable.",
+    quote: "Working with TTN transformed our approach to sourcing suppliers. Their expertise in supply chain and market entry strategy was invaluable.",
     author: "David Miller",
-    title: "CEO, EcoHome",
+    title: "CEO, Perrito & Co.",
     image: "https://i.pravatar.cc/150?img=11"
   },
   {
-    quote: "The TTN team feels like an extension of our own. They handled our European launch flawlessly from compliance to distribution.",
+    quote: "The TTN team feels like an extension of our own. They handled our launch flawlessly from compliance to distribution.",
     author: "Elena Rodriguez",
     title: "COO, FitTech Wearables",
     image: "https://i.pravatar.cc/150?img=29"
