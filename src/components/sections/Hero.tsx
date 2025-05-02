@@ -56,12 +56,14 @@ const Hero = () => {
             We help DTC brands scale across Asia Pacific and Europe—seamlessly. From sourcing and development to local launch and logistics, our platform handles the heavy lifting so you can focus on growth.
           </p>
           <div className="mt-12">
-            <Button size="lg" className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-8 py-6 text-lg">
-              Let's Talk
-              <svg className="ml-1 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Button>
+            <a href="#contact">
+              <Button size="lg" className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-8 py-6 text-lg">
+                Let's Talk
+                <svg className="ml-1 w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Button>
+            </a>
           </div>
         </div>
       </div>

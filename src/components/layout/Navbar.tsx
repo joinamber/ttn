@@ -37,9 +37,11 @@ const Navbar = () => {
             <a href="#contact" className="text-foreground/80 hover:text-warm-700 transition underline-animation">Contact</a>
           </nav>
           
-          <Button className="hidden md:inline-flex bg-warm-700 hover:bg-warm-800 text-white rounded-full px-6">
-            Get Started
-          </Button>
+          <a href="#contact">
+            <Button className="hidden md:inline-flex bg-warm-700 hover:bg-warm-800 text-white rounded-full px-6">
+              Get Started
+            </Button>
+          </a>
           
           {/* Mobile menu button */}
           <button 
@@ -88,12 +90,16 @@ const Navbar = () => {
               >
                 Contact
               </a>
-              <Button 
-                className="bg-warm-700 hover:bg-warm-800 text-white mt-2"
+              <a 
+                href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Get Started
-              </Button>
+                <Button 
+                  className="bg-warm-700 hover:bg-warm-800 text-white mt-2"
+                >
+                  Get Started
+                </Button>
+              </a>
             </div>
           </div>
         </div>
