@@ -5,6 +5,7 @@ import SectionHeader from "@/components/ui/section-header";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { Link } from "react-router-dom";
 
 const Event = () => {
   return (
@@ -22,9 +23,11 @@ const Event = () => {
               <p className="text-lg text-foreground/80 leading-relaxed">
                 TTN's Event Management Services deliver end-to-end offline activations designed to introduce your brand to new markets and spark lasting connections.
               </p>
-              <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-8">
-                Request a Consultation
-              </Button>
+              <Link to="/#contact">
+                <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-8">
+                  Request a Consultation
+                </Button>
+              </Link>
             </div>
             <div className="md:w-1/2 relative">
               <div className="aspect-[4/3] bg-warm-50 rounded-lg overflow-hidden shadow-lg">
@@ -182,9 +185,11 @@ const Event = () => {
             <p className="text-lg text-foreground/70 mb-8">
               Let TTN elevate your next market introduction with seamless execution and creative excellence.
             </p>
-            <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-8 py-6 text-lg">
-              Get Started Today
-            </Button>
+            <Link to="/#contact">
+              <Button className="bg-warm-700 hover:bg-warm-800 text-white rounded-full px-8 py-6 text-lg">
+                Get Started Today
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
