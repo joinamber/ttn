@@ -41,14 +41,25 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Services links */}
+          {/* Services links - Updated as requested */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Product Development</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Global Market Entry</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Growth Strategy</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white transition">Team Extension</a></li>
+              <li>
+                <a href="/#process" className="text-gray-400 hover:text-white transition">
+                  Product Development
+                </a>
+              </li>
+              <li>
+                <Link to="/event" className="text-gray-400 hover:text-white transition">
+                  Event Planning
+                </Link>
+              </li>
+              <li>
+                <a href="/#about" className="text-gray-400 hover:text-white transition">
+                  Growth Strategy
+                </a>
+              </li>
             </ul>
           </div>
           
