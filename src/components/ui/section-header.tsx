@@ -6,6 +6,9 @@ interface SectionHeaderProps {
   description?: string;
   className?: string;
   underline?: boolean;
+  align?: 'left' | 'center' | 'right';
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
 /**
@@ -16,11 +19,14 @@ const SectionHeader = ({
   title, 
   description, 
   className = '',
-  underline = false 
+  underline = false,
+  align = 'center',
+  titleClassName = '',
+  descriptionClassName = '',
 }: SectionHeaderProps) => {
   return (
-    <div className={`text-center max-w-3xl mx-auto mb-16 ${className}`}>
-      <h2 className={`text-3xl md:text-4xl font-serif font-medium mb-4 ${underline ? 'relative inline-block' : ''}`}>
+    <div className={`${align === 'center' ? 'text-center' : align === 'right' ? 'text-right' : 'text-left'} max-w-3xl mx-auto mb-16 ${className}`}>
+      <h2 className={`text-3xl md:text-4xl font-serif font-medium mb-4 ${underline ? 'relative inline-block' : ''} ${titleClassName}`}>
         {title}
         {underline && (
           <div className="absolute -bottom-3 left-0 w-full">
@@ -31,7 +37,7 @@ const SectionHeader = ({
         )}
       </h2>
       {description && (
-        <p className="text-lg text-foreground/70">
+        <p className={`text-lg text-foreground/70 ${descriptionClassName}`}>
           {description}
         </p>
       )}

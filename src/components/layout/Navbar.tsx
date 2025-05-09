@@ -67,6 +67,10 @@ const Navbar = () => {
                className="text-foreground/80 hover:text-warm-700 transition underline-animation">
               Services
             </a>
+            <Link to="/event" 
+                  className="text-foreground/80 hover:text-warm-700 transition underline-animation">
+              Event
+            </Link>
             <a href={getNavHref('process')} 
                onClick={(e) => handleNavigation(e, 'process')}
                className="text-foreground/80 hover:text-warm-700 transition underline-animation">
@@ -116,6 +120,13 @@ const Navbar = () => {
               >
                 Services
               </a>
+              <Link 
+                to="/event"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-2 text-foreground/80 hover:text-warm-700"
+              >
+                Event
+              </Link>
               <a 
                 href={getNavHref('process')}
                 onClick={(e) => handleNavigation(e, 'process')}
