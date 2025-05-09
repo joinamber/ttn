@@ -27,10 +27,10 @@ const Event = () => {
               </Button>
             </div>
             <div className="md:w-1/2 relative">
-              <div className="aspect-[4/3] bg-warm-200 rounded-lg overflow-hidden shadow-lg">
+              <div className="aspect-[4/3] bg-warm-50 rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src="/placeholder.svg" 
-                  alt="Event Management Services" 
+                  src="/lovable-uploads/dad94552-a22a-4e6a-b3f5-a78c88e4dcc0.png" 
+                  alt="Modern workspace with keyboard, gold pens, glasses, and notepad" 
                   className="w-full h-full object-cover"
                 />
               </div>
