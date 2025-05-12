@@ -10,34 +10,34 @@ const CaseStudies = () => {
   const caseStudies = [
     {
       id: 1,
-      title: "Skin & Glow Co.",
-      category: "Beauty",
-      description: "Helped launch a clean skincare brand across 5 Asian markets with localized marketing strategies.",
-      achievements: "Achieved 3x growth in first quarter.",
+      title: "Outdoor Apparel Brand",
+      category: "Sports",
+      description: "Partnered with a mid-tier outdoor apparel brand to facilitate its entry into the Asia-Pacific market.",
+      achievements: "Developing tailored go-to-market strategies, localized campaign assets, and regional partnership playbooks",
       image: "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
       id: 2,
-      title: "Wellness Capsule",
-      category: "Wellness",
-      description: "Developed manufacturing and distribution strategy for a supplement brand.",
-      achievements: "Cut supplier costs by 40%.",
+      title: "Handbag Designer Brand",
+      category: "Accessories",
+      description: "Leveraging TTN’s vetted supplier network to source reliable suppliers for high-quality prototyping.",
+      achievements: "The development time and complexity were significantly reduced, allowing the designer to focus on product refinement and brand storytelling.",
       image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
       id: 3,
-      title: "Techno Wearables",
+      title: "Consumer Electronics Brand",
       category: "Electronics",
-      description: "Managed global market entry for an innovative smartwatch brand from concept to shelf.",
-      achievements: "Developed partnerships with major tech retailers.",
+      description: "Assisting a growing consumer tech brand in scaling into new international markets by providing local insights, distributor connections, and tariff advisory.",
+      achievements: "Minimize friction and accelerate cross-border readiness in both the EU and Southeast Asia.",
       image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
       id: 4,
-      title: "Modern Living Co.",
-      category: "Lifestyle",
-      description: "Developed and executed omnichannel retail strategy for home goods brand expansion.",
-      achievements: "Increased online sales by 2x.",
+      title: "Boutique Wedding Designer",
+      category: "Bridalwear",
+      description: "Partnering with a luxury bridal brand to expand globally into ASEAN.",
+      achievements: "Empower the brand to deliver custom, high-quality gowns tailored to local bridal preferences.",
       image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     }
   ];
