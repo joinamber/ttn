@@ -44,7 +44,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: Testimonial }) => {
 const testimonials: Testimonial[] = [
   {
     quote: "TTN helped us navigate the complex ASEAN markets and launch our brands in Singapore and the Philippines with remarkable success.",
-    author: "Sarah Chen",
+    author: "Sarah C.",
     title: "Jewelry Founder, Nox & Oro",
     image: "https://i.pravatar.cc/150?img=32"
   },
