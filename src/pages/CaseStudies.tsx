@@ -20,7 +20,7 @@ const CaseStudies = () => {
       id: 2,
       title: "Wellness Capsule",
       category: "Wellness",
-      description: "Developed manufacturing and distribution strategy for a supplement brand entering Europe.",
+      description: "Developed manufacturing and distribution strategy for a supplement brand.",
       achievements: "Cut supplier costs by 40%.",
       image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
