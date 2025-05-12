@@ -13,7 +13,7 @@ const CaseStudies = () => {
       title: "Skin & Glow Co.",
       category: "Beauty",
       description: "Helped launch a clean skincare brand across 5 Asian markets with localized marketing strategies.",
-      achievements: "Achieved 300% growth in first year, secured partnerships with 3 major retailers.",
+      achievements: "Achieved 3x growth in first quarter.",
       image: "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
@@ -21,7 +21,7 @@ const CaseStudies = () => {
       title: "Wellness Capsule",
       category: "Wellness",
       description: "Developed manufacturing and distribution strategy for a supplement brand entering Europe.",
-      achievements: "Cut production costs by 40%, established presence in 8 countries within 18 months.",
+      achievements: "Cut supplier costs by 40%.",
       image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
@@ -29,7 +29,7 @@ const CaseStudies = () => {
       title: "Techno Wearables",
       category: "Electronics",
       description: "Managed global market entry for an innovative smartwatch brand from concept to shelf.",
-      achievements: "Secured $2.5M in pre-orders, developed partnerships with major tech retailers.",
+      achievements: "Developed partnerships with major tech retailers.",
       image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
@@ -37,7 +37,7 @@ const CaseStudies = () => {
       title: "Modern Living Co.",
       category: "Lifestyle",
       description: "Developed and executed omnichannel retail strategy for home goods brand expansion.",
-      achievements: "Increased online sales by 250%, reduced customer acquisition costs by 30%.",
+      achievements: "Increased online sales by 2x.",
       image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     }
   ];
