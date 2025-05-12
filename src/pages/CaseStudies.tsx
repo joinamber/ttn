@@ -13,7 +13,7 @@ const CaseStudies = () => {
       id: 1,
       title: "Outdoor Apparel Brand",
       category: "Sports",
-      description: "Partnered with a mid-tier outdoor apparel brand to facilitate its entry into the Asia-Pacific market.",
+      description: "Partnering with a mid-tier outdoor apparel brand to facilitate its entry into the Asia-Pacific market.",
       achievements: "Developing tailored go-to-market strategies, localized campaign assets, and regional partnership playbooks",
       image: "/lovable-uploads/7302d632-4044-46fc-985c-4d1e42d73820.png"
     },
@@ -22,7 +22,7 @@ const CaseStudies = () => {
       title: "Handbag Designer Brand",
       category: "Accessories",
       description: "Leveraging TTN's vetted supplier network to source reliable suppliers for high-quality prototyping.",
-      achievements: "The development time and complexity were significantly reduced, allowing the designer to focus on product refinement and brand storytelling.",
+      achievements: "The development time and complexity are significantly reduced, allowing the designer to focus on product refinement and brand storytelling.",
       image: "/lovable-uploads/50930c45-e870-4122-bbd8-87408b1f6c22.png"
     },
     {
