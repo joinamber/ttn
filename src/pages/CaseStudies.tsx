@@ -4,7 +4,6 @@ import Footer from "@/components/layout/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const CaseStudies = () => {
   // Sample case study data - in a real app, this might come from an API
@@ -15,15 +14,15 @@ const CaseStudies = () => {
       category: "Sports",
       description: "Partnered with a mid-tier outdoor apparel brand to facilitate its entry into the Asia-Pacific market.",
       achievements: "Developing tailored go-to-market strategies, localized campaign assets, and regional partnership playbooks",
-      image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=800&auto=format&fit=crop&q=80"
+      image: "https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
       id: 2,
       title: "Handbag Designer Brand",
       category: "Accessories",
-      description: "Leveraging TTN's vetted supplier network to source reliable suppliers for high-quality prototyping.",
+      description: "Leveraging TTN’s vetted supplier network to source reliable suppliers for high-quality prototyping.",
       achievements: "The development time and complexity were significantly reduced, allowing the designer to focus on product refinement and brand storytelling.",
-      image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=80"
+      image: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
       id: 3,
@@ -31,7 +30,7 @@ const CaseStudies = () => {
       category: "Electronics",
       description: "Assisting a growing consumer tech brand in scaling into new international markets by providing local insights, distributor connections, and tariff advisory.",
       achievements: "Minimize friction and accelerate cross-border readiness in both the EU and Southeast Asia.",
-      image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop&q=80"
+      image: "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     },
     {
       id: 4,
@@ -39,7 +38,7 @@ const CaseStudies = () => {
       category: "Bridalwear",
       description: "Partnering with a luxury bridal brand to expand globally into ASEAN.",
       achievements: "Empower the brand to deliver custom, high-quality gowns tailored to local bridal preferences.",
-      image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=80"
+      image: "https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
     }
   ];
 
@@ -78,14 +77,12 @@ const CaseStudies = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {caseStudies.map((study) => (
               <Card key={study.id} className="overflow-hidden border-none shadow-md hover:shadow-lg transition-shadow">
-                <div className="w-full h-64 relative">
-                  <AspectRatio ratio={16 / 9}>
-                    <img 
-                      src={study.image} 
-                      alt={study.title}
-                      className="object-cover w-full h-full rounded-t-lg"
-                    />
-                  </AspectRatio>
+                <div className="aspect-w-16 aspect-h-9 relative h-64">
+                  <img 
+                    src={study.image} 
+                    alt={study.title}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
                 <CardHeader>
                   <div className="flex items-center justify-between">
