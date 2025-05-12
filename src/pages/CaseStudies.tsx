@@ -23,7 +23,7 @@ const CaseStudies = () => {
       category: "Accessories",
       description: "Leveraging TTN's vetted supplier network to source reliable suppliers for high-quality prototyping.",
       achievements: "The development time and complexity are significantly reduced, allowing the designer to focus on product refinement and brand storytelling.",
-      image: "/lovable-uploads/50930c45-e870-4122-bbd8-87408b1f6c22.png"
+      image: "/lovable-uploads/88706191-e364-4946-9598-82cd7cc77e2c.png"
     },
     {
       id: 3,
