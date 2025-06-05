@@ -6,41 +6,74 @@ import { Mail, Globe } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { toast } from '@/components/ui/sonner';
 import { supabase } from '@/integrations/supabase/client';
+import { contactFormSchema, type ContactFormData } from '@/lib/validation';
+import { checkRateLimit } from '@/lib/security';
 
 const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLFormElement>(null);
+  
+  const validateForm = (formData: FormData): ContactFormData | null => {
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      company: formData.get('company') as string || undefined,
+      message: formData.get('message') as string
+    };
+
+    try {
+      return contactFormSchema.parse(data);
+    } catch (error: any) {
+      const fieldErrors: Record<string, string> = {};
+      error.errors?.forEach((err: any) => {
+        fieldErrors[err.path[0]] = err.message;
+      });
+      setErrors(fieldErrors);
+      return null;
+    }
+  };
   
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setErrors({});
     
     if (!formRef.current) return;
+    
+    // Rate limiting check
+    const userIP = 'user-session'; // In production, use actual IP or user session
+    if (!checkRateLimit(userIP, 3, 300000)) { // 3 requests per 5 minutes
+      toast.error("Too many requests. Please wait before submitting again.");
+      return;
+    }
     
     try {
       setIsSubmitting(true);
       
       const formData = new FormData(formRef.current);
-      const formValues = {
-        name: formData.get('name') as string,
-        email: formData.get('email') as string,
-        company: formData.get('company') as string || undefined,
-        message: formData.get('message') as string
-      };
+      const validatedData = validateForm(formData);
+      
+      if (!validatedData) {
+        toast.error("Please fix the errors in the form.");
+        return;
+      }
 
       // Call Supabase edge function to send email
       const { data, error } = await supabase.functions.invoke('send-email', {
-        body: formValues
+        body: validatedData
       });
 
       if (error) {
-        throw error;
+        console.error("Email sending failed:", error);
+        throw new Error("Failed to send message");
       }
       
       toast.success("Message sent successfully! We'll be in touch soon.");
       formRef.current.reset();
+      setErrors({});
     } catch (error) {
+      console.error("Contact form error:", error);
       toast.error("Failed to send message. Please try again later.");
-      console.error("Email sending failed:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -92,25 +125,29 @@ const Contact = () => {
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-medium">Name</label>
+                    <label htmlFor="name" className="text-sm font-medium">Name *</label>
                     <Input 
                       id="name" 
                       name="name"
                       placeholder="Your name" 
-                      className="border-warm-200 focus:border-warm-400" 
+                      className={`border-warm-200 focus:border-warm-400 ${errors.name ? 'border-red-500' : ''}`}
                       required
+                      maxLength={100}
                     />
+                    {errors.name && <p className="text-sm text-red-600">{errors.name}</p>}
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-medium">Email</label>
+                    <label htmlFor="email" className="text-sm font-medium">Email *</label>
                     <Input 
                       id="email" 
                       name="email"
                       type="email" 
                       placeholder="Your email" 
-                      className="border-warm-200 focus:border-warm-400" 
+                      className={`border-warm-200 focus:border-warm-400 ${errors.email ? 'border-red-500' : ''}`}
                       required
+                      maxLength={254}
                     />
+                    {errors.email && <p className="text-sm text-red-600">{errors.email}</p>}
                   </div>
                 </div>
                 
@@ -120,19 +157,23 @@ const Contact = () => {
                     id="company" 
                     name="company"
                     placeholder="Your company" 
-                    className="border-warm-200 focus:border-warm-400" 
+                    className={`border-warm-200 focus:border-warm-400 ${errors.company ? 'border-red-500' : ''}`}
+                    maxLength={100}
                   />
+                  {errors.company && <p className="text-sm text-red-600">{errors.company}</p>}
                 </div>
                 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-medium">Message</label>
+                  <label htmlFor="message" className="text-sm font-medium">Message *</label>
                   <Textarea 
                     id="message" 
                     name="message"
                     placeholder="How can we help you?" 
-                    className="min-h-[120px] border-warm-200 focus:border-warm-400" 
+                    className={`min-h-[120px] border-warm-200 focus:border-warm-400 ${errors.message ? 'border-red-500' : ''}`}
                     required
+                    maxLength={2000}
                   />
+                  {errors.message && <p className="text-sm text-red-600">{errors.message}</p>}
                 </div>
                 
                 <Button 
