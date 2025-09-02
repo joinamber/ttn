@@ -1,5 +1,7 @@
 import { Mail, Globe } from 'lucide-react';
 
+// Contact section without form
+
 const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-white">
