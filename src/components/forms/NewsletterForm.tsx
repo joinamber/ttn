@@ -1,12 +1,17 @@
 
 import { useState } from 'react';
 
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/maqrzdde';
+
+type Status = 'idle' | 'submitting' | 'success' | 'error';
+
 /**
- * Newsletter subscription form using FormSubmit service
+ * Newsletter subscription form using Formspree
  */
 const NewsletterForm = () => {
   const [email, setEmail] = useState('');
   const [error, setError] = useState('');
+  const [status, setStatus] = useState<Status>('idle');
 
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,29 +26,46 @@ const NewsletterForm = () => {
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     setError('');
+    if (status === 'error') setStatus('idle');
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    if (!email || !validateEmail(email)) {
-      e.preventDefault();
-      return;
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email || !validateEmail(email)) return;
+
+    setStatus('submitting');
+    try {
+      const response = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(e.currentTarget),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setEmail('');
+      } else {
+        setStatus('error');
+        setError('Something went wrong. Please try again.');
+      }
+    } catch {
+      setStatus('error');
+      setError('Something went wrong. Please try again.');
     }
   };
 
+  if (status === 'success') {
+    return (
+      <p className="text-sm text-gray-300">
+        Thanks for subscribing! Check your inbox for a confirmation.
+      </p>
+    );
+  }
+
   return (
-    <form 
-      action="https://formsubmit.co/info@gotrailblazer.cc" 
-      method="POST"
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-2"
-    >
-      {/* FormSubmit configuration */}
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
       <input type="hidden" name="_subject" value="Newsletter Subscription - Trailblazer" />
-      <input type="hidden" name="_next" value={window.location.href} />
-      <input type="hidden" name="_autoresponse" value="Thank you for subscribing to The Trailblazer Network newsletter! We'll keep you updated with our latest insights on global market trends." />
-      <input type="hidden" name="_template" value="table" />
-      <input type="hidden" name="_captcha" value="false" />
-      
+
       <div className="flex">
         <input
           type="email"
@@ -56,12 +78,14 @@ const NewsletterForm = () => {
           }`}
           required
           maxLength={254}
+          disabled={status === 'submitting'}
         />
         <button
           type="submit"
-          className="bg-primary hover:bg-primary/90 px-4 py-2 rounded-r-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50"
+          disabled={status === 'submitting'}
+          className="bg-primary hover:bg-primary/90 px-4 py-2 rounded-r-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-60"
         >
-          Subscribe
+          {status === 'submitting' ? 'Subscribing…' : 'Subscribe'}
         </button>
       </div>
       {error && <p className="text-sm text-red-400">{error}</p>}
